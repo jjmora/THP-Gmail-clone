@@ -2,11 +2,6 @@
   <div class="d-flex">
     <div class="col-pixel-width-70">
       <div class="actions">
-        <%= button_tag :read, class:"btn btn-primary envelope-btn", data: { remote: true, url: email_path(email.id), params: { read: email.read }.to_param, method: "put" } do %>
-          <span class="action">
-            <i class="fa fa-envelope"></i>
-          </span>
-        <% end %>
 
         <%= link_to email_path(email.id), method: 'delete', remote: true do %> 
           <span class="action">

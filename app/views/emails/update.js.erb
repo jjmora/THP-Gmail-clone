@@ -13,3 +13,12 @@ if("<%= @email.read %>" == 'false'){
     document.getElementById("icon-<%= @email.id %>").classList.add('fa-envelope-open')
   document.getElementById("icon-<%= @email.id %>").classList.remove('fa-envelope')
 }
+
+
+list_element = document.getElementById("list-<%= @email.id %>")
+
+check_class = document.getElementById("list-<%= @email.id %>").classList.contains('unread')
+
+if(check_class == true){
+  list_element.classList.remove('unread')
+} 

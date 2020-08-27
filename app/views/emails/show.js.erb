@@ -6,14 +6,13 @@ function show_email(){
   document.getElementById("content").insertAdjacentHTML("afterbegin", "<%= j render 'email_list', email: @email %>")
 
 
-  list_element = document.getElementById("list-<%= @email.id %>").classList
-  // .toggle('unread')
-  console.log(list_element)
-  if(list_element.classList == 'unread'){
-    console.log('unread')
-  } else {
-    console.log('read')
-  }
+  list_element = document.getElementById("list-<%= @email.id %>")
+
+  check_class = document.getElementById("list-<%= @email.id %>").classList.contains('unread')
+
+  if(check_class == true){
+    list_element.classList.remove('unread')
+  } 
 
 }
 show_email()
