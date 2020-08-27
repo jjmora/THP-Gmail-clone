@@ -19,9 +19,19 @@
     </div>
   </div>
   <div class="mt-3">
-    <button class="btn btn-info mr-2">
-      <span class="action"><i class="fa fa-envelope-open"></i></span>
-    </button>
+
+    <%= button_tag :read, class:"btn btn-info", id:"envelope-btn-#{email.id}", data: { remote: true, url: email_path(email.id), params: { read: email.read }.to_param, method: "put" } do %>
+      <% if email.read == true %>
+        <span class="action"><i class="fa fa-envelope-open" id="icon-<%= email.id %>"></i></span>
+      <% else %>
+        <span class="action"><i class="fa fa-envelope" id="icon-<%= email.id %>"></i></span>
+      <% end %>
+    <% end %>
+
+
+
+
+
     <%= link_to email_path(email.id), method: 'delete', remote: true do %> 
       <button class="btn btn-danger">
         <span class="action"><i class="fa fa-trash"></i></span>

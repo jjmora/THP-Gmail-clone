@@ -14,6 +14,7 @@ class EmailsController < ApplicationController
   end
 
   def create
+    @emails = Email.all
     @email = create_email(mail_params)
     
     respond_to do |format|

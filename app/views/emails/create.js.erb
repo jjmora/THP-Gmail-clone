@@ -1,5 +1,9 @@
 
 function add_to_list(){
   document.getElementById("listing").insertAdjacentHTML("afterbegin", "<%= j render 'email_new', email: @email %>")
+  d = document.getElementById('inbox-msgs').innerHTML
+  
+  console.log(d)
+  document.getElementById('inbox-msgs').innerHTML = "<%= @emails.count %>"
 }
 add_to_list()

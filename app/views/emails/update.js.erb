@@ -1,0 +1,15 @@
+btn = document.getElementById("envelope-btn-<%= @email.id %>")
+
+icon = document.getElementById("envelope-btn-<%= @email.id %>")
+text = document.getElementById("txt-<%= @email.id %>")
+
+if("<%= @email.read %>" == 'false'){
+  console.log('false')
+  document.getElementById("icon-<%= @email.id %>").classList.remove('fa-envelope-open')
+  document.getElementById("icon-<%= @email.id %>").classList.add('fa-envelope')
+
+} else {
+  console.log('true')
+    document.getElementById("icon-<%= @email.id %>").classList.add('fa-envelope-open')
+  document.getElementById("icon-<%= @email.id %>").classList.remove('fa-envelope')
+}

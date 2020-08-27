@@ -75,13 +75,14 @@
 
       <ul class="messages" id="listing">
         <% @email.each do |email| %>
-          <li class="message unread pt-2" id="list-<%= email.id %>">
+          <% if email.read == true %>
+            <li class="message pt-2" id="list-<%= email.id %>">
+          <% else %>
+            <li class="message unread pt-2" id="list-<%= email.id %>">
+          <% end %>
             <div class="d-flex">
               <div class="col-pixel-width-70">
                 <div class="actions">
- <%= button_tag :read, data: { remote: true, url: email_path(email.id), params: { read: email.read }.to_param, method: "put" }%>
-
-
                     <%= link_to email_path(email.id), method: 'delete', remote: true do %> 
                       <span class="action">
                         <i class="fa fa-trash"></i>
@@ -92,7 +93,7 @@
                         <i class="fa fa-envelope"></i>
                       </span>
 
-                  <em><small><%= email.read %></em></small>
+                  <em><small id="txt-<%= email.id%>"><%= email.read %></em></small>
                 </div>
               </div>
               <div>

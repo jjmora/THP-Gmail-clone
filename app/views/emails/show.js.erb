@@ -4,5 +4,10 @@ function show_email(){
     box.removeChild(box.firstChild);
   }
   document.getElementById("content").insertAdjacentHTML("afterbegin", "<%= j render 'email_list', email: @email %>")
+
+
+  p = document.getElementById("list-<%= @email.id %>").classList.toggle('unread')
+
+  console.log(p)
 }
 show_email()
