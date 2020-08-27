@@ -1,8 +1,10 @@
 <h1 class="text-center mb-4">Welcome to my todolist app</h1>
 <%= render 'layouts/task_form'  %>
-<p id="test">Test</p>
+
 <div class="container">
   <ul>
+  <!-- Default unchecked -->
+
   <% @categories.each do  |category|%>
   <li><%= category.title  %></li>
   <div class="card">
@@ -10,7 +12,9 @@
       <% category.tasks.each do |task|  %>
       <span class="span">
         <li id="task-<%= task.id %>" class="task">
-          <%= check_box_tag :status, true, task.status , data: { remote: true, url: task_path(task.id), params: { title: task.title, deadline: task.deadline}.to_param, method: "put", class: "box" }%>
+        <div class="custom-control custom-checkbox">
+          <%= check_box_tag :status, true, task.status , data: { remote: true, url: task_path(task.id), params: { title: task.title, deadline: task.deadline}.to_param, method: "put", class: "custom-control-input" }%>
+        </div>
 
           <%= task.title  %>
           <% unless task.deadline.nil? %>
@@ -38,4 +42,3 @@
     <% end %>
   </div>
 </div>
-<p class="texto-test">Texto Prueba</p>
