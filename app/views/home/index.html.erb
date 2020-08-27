@@ -8,12 +8,17 @@
   <div class="card">
     <ul class="cat-<%= category.id %>">
       <% category.tasks.each do |task|  %>
-      <li id="task-<%= task.id %>">
-        <%= task.title  %>
-        <% unless task.deadline.nil? %>
-          , to read: <%= task.deadline.strftime('%D')  %>
-        <% end %>
-        <%= link_to "x", task_path(task.id), method: :delete, class: "far fa-trash-alt delete-btn", remote: true %>
+      <span class="span">
+        <li id="task-<%= task.id %>" class="task">
+          <%= check_box_tag :status, true, task.status , data: { remote: true, url: task_path(task.id), params: { title: task.title, deadline: task.deadline}.to_param, method: "put", class: "box" }%>
+
+          <%= task.title  %>
+          <% unless task.deadline.nil? %>
+            , to read: <%= task.deadline.strftime('%D')  %>
+          <% end %>
+          <%= link_to "x", task_path(task.id), method: :delete, class: "far fa-trash-alt delete-btn", remote: true %>
+          <%= task.status %>
+        </span>
       </li>
       <% end %>
     </ul>
@@ -33,3 +38,4 @@
     <% end %>
   </div>
 </div>
+<p class="texto-test">Texto Prueba</p>

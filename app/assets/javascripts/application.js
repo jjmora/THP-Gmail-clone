@@ -14,3 +14,23 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+// document.addEventListener("DOMContentLoaded", function() { 
+//   let all_li = document.getElementsByTagName("li")
+//   l = all_li.length
+
+//   for(let i = 3; i < l; i++){
+//     all_li[i].classList.toggle("checked")
+//   }
+  
+// })
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() { 
+  text = document.getElementsByClassName('task')
+  
+  
+})

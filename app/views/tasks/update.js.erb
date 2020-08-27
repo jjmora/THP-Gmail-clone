@@ -1,0 +1,22 @@
+document.addEventListener("DOMContentLoaded", function() { 
+  
+  console.log("Eo")
+  
+})
+
+
+text = document.getElementsByClassName('task')
+span = document.getElementsByClassName('span')
+
+box = document.querySelectorAll('input')//a partir de4
+j = 4
+for(i = 0; i < box.length; i++){
+  function change_on_click(){
+    box[j].addEventListener('click', function(){
+      span[i].classList.toggle('checked')
+      console.log("eoooooo")
+    })
+    j++
+  }
+}
+
