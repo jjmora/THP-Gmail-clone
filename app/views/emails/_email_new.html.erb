@@ -1,14 +1,17 @@
-<li class="message unread pt-2" id="list-<%= email.id %>">
-  <div class="d-flex">
+<% if email.read == true %>
+  <li class="message pt-2" id="list-<%= email.id %>">
+  <div class="d-flex py-3" id="list-div-<%= email.id %>">
+<% else %>
+  <li class="message unread pt-2" id="list-<%= email.id %>">
+  <div class="d-flex list-emails py-3" id="list-div-<%= email.id %>">
+<% end %>
     <div class="col-pixel-width-70">
       <div class="actions">
-
-        <%= link_to email_path(email.id), method: 'delete', remote: true do %> 
-          <span class="action">
-            <i class="fa fa-trash"></i>
-          </span>
-        <% end%>
-          
+          <%= link_to email_path(email.id), method: 'delete', remote: true do %> 
+            <span class="action">
+              <i class="fa fa-trash"></i>
+            </span>
+          <% end%>
       </div>
     </div>
     <div>
@@ -20,10 +23,12 @@
           <span class="date">
           <span class="fa fa-paper-clip"></span> <%= email.created_at %></span>
         </div>
-      <% end %>
-      <div class="title">
+        <div class="title">
         <%= email.objet %>
-      </div>
+        </div>
+
+      <% end %>
+
     </div>
   </div>
 </li>

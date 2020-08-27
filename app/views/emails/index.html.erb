@@ -4,7 +4,11 @@
         <%= link_to "Receive Email", emails_path, method: :post, class: "btn btn-danger btn-block", remote: true %>
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-inbox"></i> Inbox <span class="badge badge-danger" id="inbox-msgs"><%= @email.count %></span></a>
+                <a class="nav-link" href="#">
+                  <i class="fa fa-inbox"></i> Inbox <br>
+                    <span class="badge badge-info" id="inbox-msgs"><%= @email.count %></span>
+                    <span class="badge badge-danger" id="inbox-unread"><%= @readed %></span>
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-star"></i> Stared</a>
@@ -77,10 +81,10 @@
         <% @email.each do |email| %>
           <% if email.read == true %>
             <li class="message pt-2" id="list-<%= email.id %>">
-            <div class="d-flex" id="list-div-<%= email.id %>">
+            <div class="d-flex py-3" id="list-div-<%= email.id %>">
           <% else %>
             <li class="message unread pt-2" id="list-<%= email.id %>">
-            <div class="d-flex list-emails" id="list-div-<%= email.id %>">
+            <div class="d-flex list-emails py-3" id="list-div-<%= email.id %>">
           <% end %>
               <div class="col-pixel-width-70">
                 <div class="actions">
@@ -89,10 +93,6 @@
                         <i class="fa fa-trash"></i>
                       </span>
                     <% end%>
-
-                      <%# <span class="action">
-                        <i class="fa fa-envelope"></i>
-                      </span> %>
                 </div>
               </div>
               <div>

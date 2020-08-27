@@ -1,8 +1,9 @@
 class EmailsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @email = Email.all.order('created_at DESC')
+    @readed = Email.counting
   end
 
   def show
@@ -19,7 +20,7 @@ class EmailsController < ApplicationController
   def create
     @emails = Email.all
     @email = create_email(mail_params)
-    
+    @readed = Email.counting
     respond_to do |format|
       format.html{
         redirect_to root_path
