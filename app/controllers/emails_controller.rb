@@ -1,4 +1,6 @@
 class EmailsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @email = Email.all.order('created_at DESC')
   end
