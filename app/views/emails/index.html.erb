@@ -74,9 +74,8 @@
       </div>
 
       <ul class="messages" id="listing">
-        <%= @email.each do |email| %>
+        <% @email.each do |email| %>
           <li class="message unread pt-2" id="list-<%= email.id %>">
-          <p class="title">test</p>
             <div class="d-flex">
               <div class="col-pixel-width-70">
                 <div class="actions">
@@ -89,20 +88,10 @@
                       </span>
                     <% end%>
 
-                    <%= check_box_tag :name, 1, CheckedOuPas? , data: { remote: true, url: TonURL, params: { id: ExampleID, status: StatusValue}.to_param, method: "put" }%>
-
-                    <%= link_to email_path(email.id), method: 'put', data: { params: {id: email.id, body: email.body, read: email.read}.to_param } do %> 
                       <span class="action">
-                        <i class="fa fa-envelope-open"></i>
+                        <i class="fa fa-envelope"></i>
                       </span>
-                    <% end%>
-                    <%# Delete refreshing the page %>
-                    <%= link_to email_path(email.id), method: 'delete' do %> 
-                      <%# <span class="action">
-                        <i class="fa fa-trash"></i>
-                      </span> %>
-                    <% end%>
-                    <%# Delete refreshing the page %>
+
                   <em><small><%= email.read %></em></small>
                 </div>
               </div>
