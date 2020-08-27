@@ -5,8 +5,43 @@
 @import "font-awesome";
 @import "components/*";
 
+
 .checked{
   color:gray;
   text-decoration: line-through;
 }
 
+a{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  text-decoration: none;
+  color: black;
+}
+a:visited{
+  text-decoration: none;
+  color: black;
+}
+li{
+  list-style: none;
+}
+.actions, .header{
+  color: rgb(75, 75, 156);
+}
+
+.message{
+  height: auto;
+  border-bottom: 1px solid #e1e6ef;
+}
+.col-pixel-width-70 { 
+  flex: 0 0 70px;
+}
+.col-pixel-width-130 { 
+  flex: 0 0 130px;
+  background:rgb(192, 189, 189);
+}
+
+.unread{
+  font-weight: bold;
+}

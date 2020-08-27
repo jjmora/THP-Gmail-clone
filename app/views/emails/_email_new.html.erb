@@ -1,0 +1,39 @@
+<li class="message unread pt-2" id="list-<%= email.id %>">
+  <div class="d-flex">
+    <div class="col-pixel-width-70">
+      <div class="actions">
+          <%# <span class="action"><i class="fa fa-square-o"></i></span>
+          <span class="action"><i class="fa fa-star-o"></i></span> %>
+
+          <%= link_to email_path(email.id), method: 'delete', remote: true do %> 
+            <span class="action">
+              <i class="fa fa-trash"></i>
+            </span>
+          <% end%>
+          <span class="action">
+            <i class="fa fa-envelope-open"></i>
+          </span>
+          <%= link_to email_path(email.id), method: 'delete' do %> 
+            <span class="action">
+              <i class="fa fa-trash"></i>
+            </span>
+          <% end%>
+          
+      </div>
+    </div>
+    <div>
+      <%= link_to email_path(email.id), method: 'get', remote: true do %>
+        <div class="header">
+          <span class="from">
+            <%= email.email %>
+          </span>
+          <span class="date">
+          <span class="fa fa-paper-clip"></span> <%= email.created_at %></span>
+        </div>
+      <% end %>
+      <div class="title">
+        <%= email.objet %>
+      </div>
+    </div>
+  </div>
+</li>

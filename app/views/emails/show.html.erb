@@ -1,0 +1,7 @@
+<%= link_to "Home", root_path, class:"btn btn-primary"%>
+<div class="container">
+  <b>Sender : <%= @email.email %></b><br>
+  <b>Objet : <%= @email.objet %></b><br>
+  <b>Date: <%= @email.created_at %></b><br>
+  <%= @email.body %>
+</div>

@@ -1,0 +1,8 @@
+function show_email(){
+  box = document.getElementById("content")
+  while (box.firstChild) {
+    box.removeChild(box.firstChild);
+  }
+  document.getElementById("content").insertAdjacentHTML("afterbegin", "<%= j render 'email_list', email: @email %>")
+}
+show_email()

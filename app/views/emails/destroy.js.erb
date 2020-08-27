@@ -1,0 +1,13 @@
+function delete_email(){
+  v = document.getElementById("list-<%= @email.id %>")
+  v.remove()
+  alert("message deleted")
+  box = document.getElementById("content")
+  if(box.firstChild){
+    box.firstChild.remove()
+  } 
+}
+delete_email()
+
+msg = document.getElementById('inbox-msgs').innerHTML
+document.getElementById('inbox-msgs').innerHTML = <%= @emails.length %>

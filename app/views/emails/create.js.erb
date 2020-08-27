@@ -1,0 +1,5 @@
+
+function add_to_list(){
+  document.getElementById("listing").insertAdjacentHTML("afterbegin", "<%= j render 'email_new', email: @email %>")
+}
+add_to_list()
