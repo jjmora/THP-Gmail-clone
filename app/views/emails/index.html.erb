@@ -77,10 +77,11 @@
         <% @email.each do |email| %>
           <% if email.read == true %>
             <li class="message pt-2" id="list-<%= email.id %>">
+            <div class="d-flex" id="list-div-<%= email.id %>">
           <% else %>
             <li class="message unread pt-2" id="list-<%= email.id %>">
+            <div class="d-flex list-emails" id="list-div-<%= email.id %>">
           <% end %>
-            <div class="d-flex">
               <div class="col-pixel-width-70">
                 <div class="actions">
                     <%= link_to email_path(email.id), method: 'delete', remote: true do %> 
@@ -92,8 +93,6 @@
                       <%# <span class="action">
                         <i class="fa fa-envelope"></i>
                       </span> %>
-
-                  <em><small id="txt-<%= email.id%>"><%= email.read %></em></small>
                 </div>
               </div>
               <div>
@@ -105,10 +104,12 @@
                     <span class="date">
                     <span class="fa fa-paper-clip"></span> <%= email.created_at %></span>
                   </div>
-                <% end %>
-                <div class="title">
+                  <div class="title">
                   <%= email.objet %>
-                </div>
+                  </div>
+                  <em><small id="txt-<%= email.id%>"><%= email.read %></small></em>
+                <% end %>
+
               </div>
             </div>
           </li>

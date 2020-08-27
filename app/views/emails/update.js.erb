@@ -1,24 +1,28 @@
 btn = document.getElementById("envelope-btn-<%= @email.id %>")
 
-icon = document.getElementById("envelope-btn-<%= @email.id %>")
+icon = document.getElementById("icon-<%= @email.id %>")
 text = document.getElementById("txt-<%= @email.id %>")
 
-if("<%= @email.read %>" == 'false'){
-  console.log('false')
-  document.getElementById("icon-<%= @email.id %>").classList.remove('fa-envelope-open')
-  document.getElementById("icon-<%= @email.id %>").classList.add('fa-envelope')
-
-} else {
-  console.log('true')
-    document.getElementById("icon-<%= @email.id %>").classList.add('fa-envelope-open')
-  document.getElementById("icon-<%= @email.id %>").classList.remove('fa-envelope')
-}
-
-
 list_element = document.getElementById("list-<%= @email.id %>")
-
 check_class = document.getElementById("list-<%= @email.id %>").classList.contains('unread')
 
-if(check_class == true){
-  list_element.classList.remove('unread')
-} 
+// function check_class(){
+//   if(check_class == true){
+//     list_element.classList.remove('unread')
+//   } 
+// }
+
+
+function icon_change(){
+  if(icon.classList.contains('fa-envelope-open')){
+    icon.classList.remove('fa-envelope-open')
+    icon.classList.add('fa-envelope')
+    console.log(list_element)
+    list_element.classList.add('unread')
+  } else {
+    icon.classList.remove('fa-envelope')
+    icon.classList.add('fa-envelope-open')
+    list_element.classList.remove('unread')
+  }
+}
+icon_change()

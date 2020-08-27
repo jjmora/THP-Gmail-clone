@@ -4,15 +4,46 @@ function show_email(){
     box.removeChild(box.firstChild);
   }
   document.getElementById("content").insertAdjacentHTML("afterbegin", "<%= j render 'email_list', email: @email %>")
+}
 
+show_email()
 
+icon = document.getElementById("icon-<%= @email.id %>")
+list_element = document.getElementById("list-<%= @email.id %>")
+
+function showing_bold_text(){
   list_element = document.getElementById("list-<%= @email.id %>")
-
   check_class = document.getElementById("list-<%= @email.id %>").classList.contains('unread')
+
+  // bg_list = document.getElementById('list-div-<%= @email.id %>')
 
   if(check_class == true){
     list_element.classList.remove('unread')
-  } 
-
+    icon.classList.remove('fa-envelope')
+    icon.classList.add('fa-envelope-open')
+    // bg_list.classList.remove('list-emails')
+  } else {
+    // list_element.classList.add('unread')
+    icon.classList.add('fa-envelope')
+    icon.classList.remove('fa-envelope-open')
+  }
 }
-show_email()
+
+showing_bold_text()
+
+
+function icon_change(){
+  if(icon.classList.contains('fa-envelope')){
+    icon.classList.remove('fa-envelope')
+    icon.classList.add('fa-envelope-open')
+  } else {
+    icon.classList.add('fa-envelope')
+    icon.classList.remove('fa-envelope-open')
+  }
+}
+
+icon_change()
+
+
+// console.log("Show")
+
