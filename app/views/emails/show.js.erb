@@ -6,8 +6,14 @@ function show_email(){
   document.getElementById("content").insertAdjacentHTML("afterbegin", "<%= j render 'email_list', email: @email %>")
 
 
-  p = document.getElementById("list-<%= @email.id %>").classList.toggle('unread')
+  list_element = document.getElementById("list-<%= @email.id %>").classList
+  // .toggle('unread')
+  console.log(list_element)
+  if(list_element.classList == 'unread'){
+    console.log('unread')
+  } else {
+    console.log('read')
+  }
 
-  console.log(p)
 }
 show_email()
