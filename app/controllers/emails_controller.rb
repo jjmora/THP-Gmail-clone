@@ -29,26 +29,25 @@ class EmailsController < ApplicationController
     @email = Email.find(params[:id])
   end
 
-  # def update
-  #   @email = Email.find(params[:id])
-  #   p "# "*20
-  #   p mail_params[:read]
-  #   p "# "*20
+  def update
+    @email = Email.find(params[:id])
 
-  #   # if mail_params[:read] == true  
-  #   #   p "€ "*20
-  #   #   p " true "*30
-  #   #   p "€ "*20
-  #   #   params[:read] = false
-  #   # else
-  #   #   p "@ "*20
-  #   #   p " false "*30
-  #   #   p "@ "*20
-  #   #   params[:read] = true
-  #   # end
-  #   @email.update(mail_params)
-  #   redirect_to root_path
-  # end
+    if params[:read] == 'true'  
+      params[:read] = false
+    else
+      params[:read] = true
+    end
+    @email.update(read: params[:read])
+
+    respond_to do |format|
+      format.html{
+        redirect_to root_path
+      }
+      format.js{}
+    end
+
+    
+  end
 
   def destroy
     @emails = Email.all
